@@ -1,0 +1,6 @@
+version: 2
+instruments: ['BTC','ETH','REP','XLM','SOL','GBP']
+start_date: '2020-01-01'
+end_date: '2022-10-01'
+numPC: 4
+
