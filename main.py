@@ -16,10 +16,26 @@ import seaborn as sns
 
 
 def load_model_params(filename):
+    """
+    Loads yaml file to dict
+
+    Args:
+        filename (str): name of file in current working directory
+
+    Returns:
+        dict: dictionary of model parameters
+    """
     data = yaml.safe_load(Path(filename).read_text())
     return data
 
 def make_pca_analysis(**params):
+    """
+    Main function - collects/collates data
+    calculates PCA and fits defined in params
+
+    Returns:
+        pd.DataFrame: df of PCA results
+    """
     
     # Extract your instrument packet here
     cryptos = params['instruments']
@@ -58,7 +74,7 @@ def make_pca_analysis(**params):
     combs = list(combinations(features.columns,2))
     
     # Add a polyomial fit degree to comb list of tuples
-    combdata = [(x,y,z) for x,y in combs for z in range(1,7)]
+    combdata = [(x,y,z) for x,y in combs for z in range(params['fitfuncrange']['start'],params['fitfuncrange']['end'])]
     
     # define your fit function as a selection from 'fitfuncs' - can be passed as CLI
     func = fitfuncs.x_deg_sin_x
@@ -94,9 +110,10 @@ def make_pca_analysis(**params):
     
     
 if __name__=='__main__':
-    
-    
+    # Load params from yaml
     params = load_model_params('model.yaml')
+    
+    # Load params from CLI - these will override yaml
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--png',
@@ -120,5 +137,6 @@ if __name__=='__main__':
         params['outfmt'] = args.outfmt
     if args.fitfunc:
         params['fitfunc'] = args.fitfunc
+        
+    # Main lifter
     df = make_pca_analysis(**params)
-    breakpoint()
