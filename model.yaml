@@ -3,4 +3,9 @@ instruments: ['BTC','ETH','REP','XLM','SOL','GBP']
 start_date: '2020-01-01'
 end_date: '2022-10-01'
 numPC: 4
-
+png: True
+outfmt: 'csv' # can be json
+fitfunc: fitfuncs.x_deg_sin_x # see fitfuncs file to change function name 
+fitfuncrange:
+  start: 1
+  end: 7
