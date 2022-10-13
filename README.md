@@ -24,4 +24,13 @@ python3 main.py --png=True --outfmt='json'
 ```
 ## Usage - Docker
 
-This tool is also available as a docker container on dockerhub. Please 
+This tool is also available as a docker container on dockerhub. 
+
+```bash
+docker pull kithaywood/pca-crypto
+```
+ Then run
+ 
+ ```bash
+ docker run pca-crypto
+ ```
