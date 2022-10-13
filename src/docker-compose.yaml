@@ -1,0 +1,9 @@
+version: "3.4"
+services:
+  python:
+    build:
+      context: .
+    container_name: python
+    image: kithaywood/pca-crypto
+    ports:
+    - 5001:5000

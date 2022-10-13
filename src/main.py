@@ -5,7 +5,7 @@ from pathlib import Path
 import argparse
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
-import json,sys
+import json,os
 from itertools import combinations
 import pandas as pd
 import fitfuncs
@@ -103,7 +103,7 @@ def make_pca_analysis(**params):
             json.dump(df.to_dict(orient='records'),f)
     
     if params['outfmt']=='csv':
-        df.to_csv('output.csv')
+        df.to_csv(os.path.join(os.getcwd(),'photos','output.csv'))
         
     return df        
         
@@ -140,3 +140,4 @@ if __name__=='__main__':
         
     # Main lifter
     df = make_pca_analysis(**params)
+    
