@@ -95,7 +95,7 @@ def make_pca_analysis(**params):
             sns.scatterplot(x=features[df['x'][idx]], y=features[df['y'][idx]], hue=list(range(len(features))),ax=col)
             sns.lineplot(x=features[df['x'][idx]], y=func(features[df['x'][idx]], *results[idx][0]), color='red',ax=col)
         
-        fig.suptitle(f"N-{params['numPC']} PCA Analysis on {params['instruments']}")
+        fig.suptitle(f"N = {params['numPC']} PCA Analysis on {params['instruments']}",size='x-large')
         # fig.savefig('output.png')
         return fig
         

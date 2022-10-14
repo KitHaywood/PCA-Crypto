@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: test-app
-        image: kithaywood/pca-crypto
+        image: kithaywood/pca-crypto:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 5000
