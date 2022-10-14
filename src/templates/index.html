@@ -1,21 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <style>
-        .bottom-three {
-           margin-bottom: 3cm;
-        }
-      </style>
-      
-<head>
-    <title>Index</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %} User Page {% endblock %}
+{% block content %}
+<h1 style="font-family:verdana;" style="text-align:center;" >Get PCA-Analysis for set of Cryptos</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+<form action="/image" method="post">
+    <div>
+    <h2 style="font-family:verdana;" style="text-align:center;" class="bottom-three">
+        Select Cryptos
+    </h2>
+    <select width=300 style="width: 350px" size="10" multiple class="chosen-select" name="cryptos">
+        <option>BTC</option>
+        <option>XLM</option>
+        <option>XRP</option>
+        <option>ETH</option>
+        <option>REP</option>
+        <option>SOL</option>
+        <option>GBP</option>
+        <option>USD</option>
+        <option>EUR</option>
+    </select>
+    </div>
     <p class="bottom-three">
-        "Hello Button goes here"
+    <label for="Name">Enter Num PCAs</label>
+    <input type="text" name="pcas" id="pca" class="chosen-select">
+    <input type="Submit" value="Run PCA" class="chosen-select" name="button">
     </p>
-    
     <p class="bottom-three">
-        <img src="{{ user_image }}" alt="my image">
+        <img src=''
     </p>
-</body>
-</html>
+</form>
+
+{% endblock %}

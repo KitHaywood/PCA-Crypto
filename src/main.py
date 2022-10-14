@@ -96,16 +96,18 @@ def make_pca_analysis(**params):
             sns.lineplot(x=features[df['x'][idx]], y=func(features[df['x'][idx]], *results[idx][0]), color='red',ax=col)
         
         fig.suptitle(f"N-{params['numPC']} PCA Analysis on {params['instruments']}")
-        fig.savefig('output.png')
-    
+        # fig.savefig('output.png')
+        return fig
+        
     if params['outfmt']=='json':
         with open('output.json','w+') as f:
             json.dump(df.to_dict(orient='records'),f)
+            
     
     if params['outfmt']=='csv':
         df.to_csv(os.path.join(os.getcwd(),'photos','output.csv'))
         
-    return df        
+    return None        
         
     
     
